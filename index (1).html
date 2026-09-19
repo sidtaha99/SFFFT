@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Surprise ❤️</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,"Times New Roman",serif;background:#090713;color:#fff}
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+padding:22px;opacity:0;pointer-events:none;transition:opacity 1s ease;background:
+radial-gradient(circle at 50% 45%,#3b1935 0,#160d22 42%,#090713 78%)}
+.scene.active{opacity:1;pointer-events:auto}
+.card{width:min(680px,94vw);text-align:center;position:relative;z-index:3}
+.kicker{letter-spacing:5px;text-transform:uppercase;font:12px Arial,sans-serif;color:#eab5c9;margin-bottom:20px}
+h1{font-size:clamp(38px,9vw,76px);font-weight:400;margin:0 0 20px;line-height:1.05}
+p{font-size:clamp(18px,4vw,23px);line-height:1.65;color:#eadfe6;margin:12px auto;max-width:600px}
+button{border:0;border-radius:999px;padding:14px 25px;font-size:16px;cursor:pointer;margin:14px 6px;
+background:#f4c2d7;color:#271020;box-shadow:0 8px 30px #0007;transition:.25s}
+button:hover{transform:translateY(-2px)}
+.ghost{background:#ffffff12;color:#fff;border:1px solid #ffffff25}
+.heart{position:absolute;animation:float linear infinite;opacity:.65;font-size:18px}
+@keyframes float{from{transform:translateY(110vh) rotate(0deg);opacity:0}15%{opacity:.7}to{transform:translateY(-15vh) rotate(360deg);opacity:0}}
+.typing{min-height:110px}
+.fade{animation:fade 1.2s both}.delay{animation-delay:.5s}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#no{position:relative}
+.proposal h1{font-size:clamp(42px,11vw,88px)}
+.buttons{height:95px;position:relative}
+#yes{position:relative;z-index:5}
+#no{z-index:6}
+
+
+.hug{width:min(620px,94vw);height:285px;position:relative;margin:0 auto 8px;overflow:hidden;border-radius:28px}
+.stage{position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,#5b294d 0,#2b1836 50%,#120b1b 100%);box-shadow:inset 0 0 60px #0008}
+.ground{position:absolute;left:12%;right:12%;bottom:32px;height:2px;background:#ffffff20}
+.character{position:absolute;bottom:34px;width:96px;height:205px;z-index:2}
+.character.taha{left:calc(50% - 190px);--shirt:#6878b2;--skin:#d99c7c}
+.character.faiqa{left:calc(50% + 94px);--shirt:#bd6b88;--skin:#e5ae8f}
+.head{position:absolute;width:52px;height:52px;border-radius:50%;background:var(--skin);top:3px;left:22px;z-index:3}
+.hair{position:absolute;width:58px;height:35px;border-radius:50% 50% 45% 45%;background:#241a23;top:0;left:19px;z-index:4}
+.faiqa .hair{height:48px}
+.body{position:absolute;width:66px;height:91px;border-radius:24px 24px 15px 15px;background:var(--shirt);top:57px;left:15px}
+.neck{position:absolute;width:16px;height:14px;background:var(--skin);top:50px;left:40px;z-index:2}
+.arm{position:absolute;width:58px;height:15px;border-radius:15px;background:var(--skin);top:76px;z-index:5;transform-origin:9px 7px}
+.arm.left{left:2px;transform:rotate(-16deg)}
+.arm.right{left:55px;transform:rotate(16deg)}
+.leg{position:absolute;width:17px;height:70px;border-radius:12px;background:#28263a;top:143px}
+.leg.l{left:24px}.leg.r{left:57px}
+.shoe{position:absolute;width:29px;height:11px;border-radius:10px;background:#171522;top:207px}
+.shoe.l{left:12px}.shoe.r{left:52px}
+.face{position:absolute;z-index:6;top:25px;left:34px;font:11px Arial;color:#43242d;letter-spacing:2px}
+.character.taha,.character.faiqa{transition:left 2.1s cubic-bezier(.2,.8,.2,1)}
+.hug.animate .character.taha{left:calc(50% - 92px)}
+.hug.animate .character.faiqa{left:calc(50% - 2px)}
+.hug.animate .character.taha .arm.right{animation:taHug 1s 1.65s forwards}
+.hug.animate .character.taha .arm.left{animation:taHug2 1s 1.65s forwards}
+.hug.animate .character.faiqa .arm.left{animation:faHug 1s 1.65s forwards}
+.hug.animate .character.faiqa .arm.right{animation:faHug2 1s 1.65s forwards}
+@keyframes taHug{to{transform:rotate(54deg) translateX(4px)}}
+@keyframes taHug2{to{transform:rotate(38deg)}}
+@keyframes faHug{to{transform:rotate(-48deg)}}
+@keyframes faHug2{to{transform:rotate(-38deg)}}
+.hug.animate:after{content:"♥";position:absolute;left:50%;top:58px;transform:translateX(-50%) scale(0);font-size:38px;color:#f6b8d0;z-index:8;animation:heartIn .7s 2.65s forwards,pulse 1.1s 3.35s infinite}
+@keyframes heartIn{to{transform:translateX(-50%) scale(1)}}
+@keyframes pulse{50%{transform:translateX(-50%) scale(1.2)}}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+
+<section class="scene active" id="s1">
+  <div class="card">
+    <div class="kicker fade">Faiqa, before anything else…</div>
+    <h1 class="fade delay">I'm sorry. ❤️</h1>
+    <p class="typing fade delay">I know I've troubled you, annoyed you, and probably tested your patience more than I should have.</p>
+    <p class="fade delay">I never wanted to make you uncomfortable. I genuinely mean this apology.</p>
+    <button class="nextBtn" data-next="2">I mean it →</button>
+  </div>
+</section>
+
+<section class="scene" id="s2">
+  <div class="card">
+    <div class="kicker">Okay… one more thing</div>
+    <h1>There is something<br>I've been hiding.</h1>
+    <p>And honestly, I've been trying to find the right words for it.</p>
+    <button class="nextBtn" data-next="3">Tell me…</button>
+  </div>
+</section>
+
+<section class="scene" id="s3">
+  <div class="card">
+    <div class="kicker">My confession</div>
+    <h1>Faiqa…</h1>
+    <p>Somewhere along the way, you stopped being just my classmate.</p>
+    <p>You became the person who can make an ordinary day feel a little more special.</p>
+    <p>And yes… I have a crush on you. A real one. 🦋</p>
+    <button class="nextBtn" data-next="4">There's more…</button>
+  </div>
+</section>
+
+<section class="scene proposal" id="s4">
+  <div class="card">
+    <div class="kicker">So, from Taha…</div>
+    <h1>Faiqa, will you<br>be mine? ❤️</h1>
+    <p>I don't expect a perfect answer. I just wanted you to know how I feel.</p>
+    <div class="buttons">
+      <button id="yes" onclick="yes()">YES ❤️</button>
+      <button id="no" class="ghost" onmouseenter="runAway()" onclick="runAway()">NO 🙈</button>
+    </div>
+    <div class="small">P.S. The “NO” button is shy. You can still say no for real. 🤍</div>
+  </div>
+</section>
+
+<section class="scene" id="s5">
+  <div class="card">
+    <div class="kicker">One last thing</div>
+    <div class="hug" id="hug">
+      <div class="stage">
+        <div class="ground"></div>
+        <div class="character taha">
+          <div class="hair"></div><div class="head"></div><div class="neck"></div>
+          <div class="body"></div><div class="face">•ᴗ•</div>
+          <div class="arm left"></div><div class="arm right"></div>
+          <div class="leg l"></div><div class="leg r"></div>
+          <div class="shoe l"></div><div class="shoe r"></div>
+        </div>
+        <div class="character faiqa">
+          <div class="hair"></div><div class="head"></div><div class="neck"></div>
+          <div class="body"></div><div class="face">•ᴗ•</div>
+          <div class="arm left"></div><div class="arm right"></div>
+          <div class="leg l"></div><div class="leg r"></div>
+          <div class="shoe l"></div><div class="shoe r"></div>
+        </div>
+      </div>
+    </div>
+    <h1>Come here. 🤍</h1>
+    <p>No more big speeches.</p>
+    <p>Just a hug from me to you.</p>
+  </div>
+</section>
+
+<script>
+let current=1;
+const scenes=[...document.querySelectorAll('.scene')];
+
+function show(n){
+  if(n < 1 || n > scenes.length) return;
+  scenes.forEach((s,i)=>s.classList.toggle('active', i === n-1));
+  current=n;
+  if(n===5){
+    const hug=document.getElementById('hug');
+    hug.classList.remove('animate');
+    void hug.offsetWidth;
+    setTimeout(()=>hug.classList.add('animate'),180);
+  }
+}
+
+document.querySelectorAll('.nextBtn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    show(Number(btn.dataset.next));
+  });
+});
+
+function yes(){ show(5); }
+function runAway(){
+  const b=document.getElementById('no');
+  const box=document.querySelector('.buttons').getBoundingClientRect();
+  const maxX=Math.max(0,box.width-100), maxY=55;
+  b.style.position='absolute';
+  b.style.left=Math.random()*maxX+'px';
+  b.style.top=(Math.random()*maxY)+'px';
+}
+for(let i=0;i<22;i++){
+ const h=document.createElement('div');h.className='heart';h.textContent=['♥','♡','🦋'][i%3];
+ h.style.left=Math.random()*100+'vw';h.style.animationDuration=(7+Math.random()*8)+'s';
+ h.style.animationDelay=(-Math.random()*12)+'s';document.body.appendChild(h);
+}
+</script>
+</body>
+</html>
